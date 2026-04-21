@@ -25,15 +25,15 @@ export function createPrayingRouter({ apiUrl, clientId, encryptionKey, platform 
 
     const body = req.body || {};
     const data = {
-      device_model: body.device_model ?? platform,
-      device_platform: body.device_platform ?? platform,
-      device_version: body.device_version ?? platform,
-      device_uuid: body.device_uuid ?? '',
-      push_token: body.push_token ?? '',
-      push_at: body.push_at ?? '10:00:00',
-      push_lang: body.push_lang ?? 'eng',
-      time_zone: body.time_zone ?? 'UTC',
-      receive_push: body.receive_push ?? 0,
+      device_model: typeof body.device_model === 'string' ? body.device_model : platform,
+      device_platform: typeof body.device_platform === 'string' ? body.device_platform : platform,
+      device_version: typeof body.device_version === 'string' ? body.device_version : platform,
+      device_uuid: typeof body.device_uuid === 'string' ? body.device_uuid : '',
+      push_token: typeof body.push_token === 'string' ? body.push_token : '',
+      push_at: typeof body.push_at === 'string' ? body.push_at : '10:00:00',
+      push_lang: typeof body.push_lang === 'string' ? body.push_lang : 'eng',
+      time_zone: typeof body.time_zone === 'string' ? body.time_zone : 'UTC',
+      receive_push: body.receive_push === 1 || body.receive_push === true ? 1 : 0,
     };
 
     try {

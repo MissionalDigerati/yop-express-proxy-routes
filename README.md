@@ -20,9 +20,10 @@ const app = express();
 app.use(express.json());
 
 const prayingRouter = createPrayingRouter({
-  apiUrl: process.env.OW_PRAYER_API_URL,
-  clientId: process.env.OW_PRAYER_API_CLIENT_ID,
-  encryptionKey: process.env.ENCRYPTION_KEY, // must be exactly 32 characters
+  apiUrl: process.env.API_URL,
+  clientId: process.env.CLIENT_ID,
+  encryptionKey: process.env.ENCRYPTION_KEY, // must be exactly 32 characters — shorter values will throw at runtime
+  // platform: 'my app name',               // optional, defaults to 'year of prayer proxy'
 });
 
 app.use('/api/praying', prayingRouter);
@@ -118,6 +119,39 @@ Retrieves the total prayer count for the given day. If `apiKey` is omitted the r
   "data": { }
 }
 ```
+
+## Contributing / Development setup
+
+This package is published to **GitHub Packages**, which requires authentication even for installation.
+
+### 1. Create a GitHub Personal Access Token (PAT)
+
+Go to **GitHub → Settings → Developer settings → Personal access tokens** and generate a token with:
+- `read:packages` — to install the package in a consuming app
+- `write:packages` — to publish new versions of this package
+
+### 2. Configure npm authentication
+
+Add the following to a `.npmrc` file at the **root of your project** (not `~/.npmrc`), so the `@year-of-prayer` scope is always resolved from GitHub Packages:
+
+```
+@year-of-prayer:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
+```
+
+Then set the `GITHUB_TOKEN` environment variable in your shell or CI secrets — do **not** hardcode the token in the file.
+
+### 3. Install dependencies
+
+```bash
+npm install
+```
+
+### Node.js version
+
+This package requires **Node.js 14 or later** (declared in `engines`). Use [nvm](https://github.com/nvm-sh/nvm) and run `nvm use` to switch automatically.
+
+---
 
 ## Linting
 

@@ -5,7 +5,7 @@ An Express Router package that proxies requests to the Year of Prayer API. Extra
 ## Installation
 
 ```bash
-npm install @year-of-prayer/proxy-routes
+npm install @missionaldigerati/yop-proxy-routes
 ```
 
 > **Note:** `express` is a peer dependency and must be installed separately in your application.
@@ -14,7 +14,7 @@ npm install @year-of-prayer/proxy-routes
 
 ```js
 import express from 'express';
-import { createPrayingRouter } from '@year-of-prayer/proxy-routes';
+import { createPrayingRouter } from '@missionaldigerati/yop-proxy-routes';
 
 const app = express();
 app.use(express.json());
@@ -132,10 +132,10 @@ Go to **GitHub → Settings → Developer settings → Personal access tokens** 
 
 ### 2. Configure npm authentication
 
-Add the following to a `.npmrc` file at the **root of your project** (not `~/.npmrc`), so the `@year-of-prayer` scope is always resolved from GitHub Packages:
+Add the following to a `.npmrc` file at the **root of your project** (not `~/.npmrc`), so the `@missionaldigerati` scope is always resolved from GitHub Packages:
 
 ```
-@year-of-prayer:registry=https://npm.pkg.github.com
+@missionaldigerati:registry=https://npm.pkg.github.com
 //npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
 ```
 

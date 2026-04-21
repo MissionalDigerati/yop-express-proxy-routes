@@ -1,6 +1,6 @@
 {
   "name": "@missionaldigerati/yop-express-proxy-routes",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Express Router package that proxies requests to the Year of Prayer API.",
   "type": "module",
   "main": "src/index.js",

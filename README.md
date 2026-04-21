@@ -5,7 +5,7 @@ An Express Router package that proxies requests to the Year of Prayer API. Extra
 ## Installation
 
 ```bash
-npm install @missionaldigerati/yop-proxy-routes
+npm install @missionaldigerati/yop-express-proxy-routes
 ```
 
 > **Note:** `express` is a peer dependency and must be installed separately in your application.
@@ -14,7 +14,7 @@ npm install @missionaldigerati/yop-proxy-routes
 
 ```js
 import express from 'express';
-import { createPrayingRouter } from '@missionaldigerati/yop-proxy-routes';
+import { createPrayingRouter } from '@missionaldigerati/yop-express-proxy-routes';
 
 const app = express();
 app.use(express.json());

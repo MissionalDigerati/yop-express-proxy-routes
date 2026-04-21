@@ -4,6 +4,25 @@ An Express Router package that proxies requests to the Year of Prayer API. Extra
 
 ## Installation
 
+This package is published to **GitHub Packages**. Authentication is required even though the package is public.
+
+### 1. Create a GitHub Personal Access Token (PAT)
+
+Go to **GitHub → Settings → Developer settings → Personal access tokens** and generate a token with the `read:packages` scope.
+
+### 2. Configure npm authentication
+
+Add a `.npmrc` file to the **root of your project** (not `~/.npmrc`):
+
+```
+@missionaldigerati:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
+```
+
+Set `GITHUB_TOKEN` in your shell or CI environment — do **not** hardcode the token in the file.
+
+### 3. Install
+
 ```bash
 npm install @missionaldigerati/yop-express-proxy-routes
 ```

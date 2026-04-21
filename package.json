@@ -1,0 +1,27 @@
+{
+  "name": "@year-of-prayer/proxy-routes",
+  "version": "1.0.0",
+  "description": "Express Router package that proxies requests to the Year of Prayer API.",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix"
+  },
+  "license": "GPL-3.0",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "dependencies": {
+    "axios": "^1.8.4"
+  },
+  "peerDependencies": {
+    "express": ">=4.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "eslint": "^9.0.0",
+    "eslint-config-prettier": "^10.0.0",
+    "prettier": "^3.0.0"
+  }
+}
